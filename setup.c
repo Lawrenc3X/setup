@@ -20,7 +20,7 @@ int main()
      * Open file in w (write) mode. 
      * "data/file1.txt" is complete path to create file
      */
-    fPtr = fopen("file1.txt", "w");
+    fPtr = fopen("file1.txt", "a");
 
 
     /* fopen() return NULL if last operation was unsuccessful */
