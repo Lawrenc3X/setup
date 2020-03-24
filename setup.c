@@ -86,11 +86,11 @@ int main(int argc, char * argv[])
 
     printf("filename: %s name: %s extension: %s\n", filename, name, extension);
 
-    if (!exists("makefile") )
+    if (!exists("makefilex") )
     {
         FILE * makefile;
 
-        makefile = fopen("makefile", "a");
+        makefile = fopen("makefilex", "a");
         if (makefile == NULL)
         {
             printf("Failed to create makefile\n");
@@ -100,19 +100,19 @@ int main(int argc, char * argv[])
         char * compiler = equal(".c", extension)? "CC" : "CXX";
         char * flags = equal(".c", extension) ? "CFLAGS" : "CXXFLAGS";
 
-        fprintf(makefile, "CC = gcc\
-CXX = g++\
-CFLAGS = -g\
-CXXFLAGS = -g\
-\
-setup: setup.c\
- $(%s) $(%s) -o %s %s\
-\
-all: setup.c\
- $(%s) $(%s) -o %s %s\
-\
-clean:\
-     rm -r %s %s%s", compiler, flags, name, filename, compiler, flags, name, filename, name, name, ".dSYM");
+        fprintf(makefile, "CC = gcc\n\
+CXX = g++\n\
+CFLAGS = -g\n\
+CXXFLAGS = -g\n\
+\n\
+%s: %s\n\
+\t$(%s) $(%s) -o %s %s\n\
+\n\
+all: %s\n\
+\t$(%s) $(%s) -o %s %sn\n\
+\n\
+clean:\n\
+\trm -r %s %s%s", name, filename, compiler, flags, name, filename, filename, compiler, flags, name, filename, name, name, ".dSYM");
 
         fclose(makefile);
     } else
@@ -120,11 +120,11 @@ clean:\
         printf("makefile already exists\n");
     }
     
-    if (!exists(".gitignore") )
+    if (!exists("gitignorex") )
     {
         FILE * gitignore;
 
-        gitignore = fopen(".gitignore", "a");
+        gitignore = fopen("gitignorex", "a");
         if (gitignore == NULL)
         {
             printf("Failed to create gitignore\n");
@@ -133,109 +133,109 @@ clean:\
 
         if (equal(".c", extension))
         {
-            fprintf(gitignore, "# Prerequisites\
-*.d\
-\
-# Object files\
-*.o\
-*.ko\
-*.obj\
-*.elf\
-\
-# Linker output\
-*.ilk\
-*.map\
-*.exp\
-\
-# Precompiled Headers\
-*.gch\
-*.pch\
-\
-# Libraries\
-*.lib\
-*.a\
-*.la\
-*.lo\
-\
-# Shared objects (inc. Windows DLLs)\
-*.dll\
-*.so\
-*.so.*\
-*.dylib\
-\
-# Executables\
-*.exe\
-*.out\
-*.app\
-*.i*86\
-*.x86_64\
-*.hex\
-\
-# Debug files\
-*.dSYM/\
-*.su\
-*.idb\
-*.pdb\
-\
-# Kernel Module Compile Results\
-*.mod*\
-*.cmd\
-.tmp_versions/\
-modules.order\
-Module.symvers\
-Mkfile.old\
-dkms.conf\
-\
-# .dSYM\
-*.dSYM\
-\
-# .DS_Store\
-.DS_Store\
-\
-# Swap files\
+            fprintf(gitignore, "# Prerequisites\n\
+*.d\n\
+\n\
+# Object files\n\
+*.o\n\
+*.ko\n\
+*.obj\n\
+*.elf\n\
+\n\
+# Linker output\n\
+*.ilk\n\
+*.map\n\
+*.exp\n\
+\n\
+# Precompiled Headers\n\
+*.gch\n\
+*.pch\n\
+\n\
+# Libraries\n\
+*.lib\n\
+*.a\n\
+*.la\n\
+*.lo\n\
+\n\
+# Shared objects (inc. Windows DLLs)\n\
+*.dll\n\
+*.so\n\
+*.so.*\n\
+*.dylib\n\
+\n\
+# Executables\n\
+*.exe\n\
+*.out\n\
+*.app\n\
+*.i*86\n\
+*.x86_64\n\
+*.hex\n\
+\n\
+# Debug files\n\
+*.dSYM/\n\
+*.su\n\
+*.idb\n\
+*.pdb\n\
+\n\
+# Kernel Module Compile Results\n\
+*.mod*\n\
+*.cmd\n\
+.tmp_versions/\n\
+modules.order\n\
+Module.symvers\n\
+Mkfile.old\n\
+dkms.conf\n\
+\n\
+# .dSYM\n\
+*.dSYM\n\
+\n\
+# .DS_Store\n\
+.DS_Store\n\
+\n\
+# Swap files\n\
 *.swp");
         } else
         {
-            fprintf(gitignore, "# Prerequisites\
-*.d\
-\
-# Compiled Object files\
-*.slo\
-*.lo\
-*.o\
-*.obj\
-\
-# Precompiled Headers\
-*.gch\
-*.pch\
-\
-# Compiled Dynamic libraries\
-*.so\
-*.dylib\
-*.dll\
-\
-# Fortran module files\
-*.mod\
-*.smod\
-\
-# Compiled Static libraries\
-*.lai\
-*.la\
-*.a\
-*.lib\
-\
-# Executables\
-*.exe\
-*.out\
-*.app\
-\
-# .dSYM\
-*.dSYM\
-\
-# .DS_Store\
-.DS_Store\
-\
-# Swap files\
+            fprintf(gitignore, "# Prerequisites\n\
+*.d\n\
+\n\
+# Compiled Object files\n\
+*.slo\n\
+*.lo\n\
+*.o\n\
+*.obj\n\
+\n\
+# Precompiled Headers\n\
+*.gch\n\
+*.pch\n\
+\n\
+# Compiled Dynamic libraries\n\
+*.so\n\
+*.dylib\n\
+*.dll\n\
+\n\
+# Fortran module files\n\
+*.mod\n\
+*.smod\n\
+\n\
+# Compiled Static libraries\n\
+*.lai\n\
+*.la\n\
+*.a\n\
+*.lib\n\
+\n\
+# Executables\n\
+*.exe\n\
+*.out\n\
+*.app\n\
+\n\
+# .dSYM\n\
+*.dSYM\n\
+\n\
+# .DS_Store\n\
+.DS_Store\n\
+\n\
+# Swap files\n\
 *.swp");
         }
 

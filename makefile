@@ -3,7 +3,7 @@ CXX = g++
 CFLAGS = -g
 CXXFLAGS = -g
 
-setup: setup.c
+setup: setup.c 
 	$(CC) $(CFLAGS) -o setup setup.c
 
 all: setup.c 
