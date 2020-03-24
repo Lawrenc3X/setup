@@ -86,11 +86,11 @@ int main(int argc, char * argv[])
 
     printf("filename: %s name: %s extension: %s\n", filename, name, extension);
 
-    if (!exists("makefilex") )
+    if (!exists("makefile") )
     {
         FILE * makefile;
 
-        makefile = fopen("makefilex", "a");
+        makefile = fopen("makefile", "a");
         if (makefile == NULL)
         {
             printf("Failed to create makefile\n");
@@ -120,11 +120,11 @@ clean:\n\
         printf("makefile already exists\n");
     }
     
-    if (!exists("gitignorex") )
+    if (!exists(".gitignore") )
     {
         FILE * gitignore;
 
-        gitignore = fopen("gitignorex", "a");
+        gitignore = fopen(".gitignore", "a");
         if (gitignore == NULL)
         {
             printf("Failed to create gitignore\n");
