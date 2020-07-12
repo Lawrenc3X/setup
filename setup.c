@@ -109,7 +109,7 @@ CXXFLAGS = -g\n\
 \t$(%s) $(%s) -o %s %s\n\
 \n\
 all: %s\n\
-\t$(%s) $(%s) -o %s %sn\n\
+\t$(%s) $(%s) -o %s %s\n\
 \n\
 clean:\n\
 \trm -r %s %s%s", name, filename, compiler, flags, name, filename, filename, compiler, flags, name, filename, name, name, ".dSYM");
