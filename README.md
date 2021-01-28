@@ -1,4 +1,4 @@
-# setup
- make a generic makefile and gitignore
+# setup WIP
+ Make a generic makefile with flags and multiple source files.
  
- I save this binary in /usr/local/bin
+ I add the local repository to my PATH.

@@ -1,7 +1,7 @@
 CC = gcc
 CXX = g++
-CFLAGS = -g
-CXXFLAGS = -g
+CFLAGS = 
+CXXFLAGS = 
 
 setup: setup.c
 	$(CC) $(CFLAGS) -o setup setup.c
